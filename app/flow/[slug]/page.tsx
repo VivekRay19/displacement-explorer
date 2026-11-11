@@ -9,7 +9,6 @@ import { formatDisplacementNumber } from '@/lib/formatting/numbers';
 
 export default function FlowVisualizationPage({ params }: { params: { slug: string } }) {
   const { numberFormat } = useResearch();
-  const [selectedYear, setSelectedYear] = useState(2025);
 
   // Verified 2025 onward movement aggregate flow
   // 148,369 Total Sri Lankan refugees: 89,507 in India, 24,000 France, 16,000 Canada, 11,000 UK, 7,862 Others

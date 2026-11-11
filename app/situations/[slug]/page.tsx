@@ -2,6 +2,14 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { dataRepository } from '@/lib/repositories/dataRepository';
 import { SituationClient } from '@/components/situation/SituationClient';
+import { SITUATIONS_CATALOGUE } from '@/lib/data/situations';
+
+// Enable static pre-rendering on Vercel for all supported situations
+export function generateStaticParams() {
+  return SITUATIONS_CATALOGUE.map((sit) => ({
+    slug: sit.slug,
+  }));
+}
 
 export default async function SituationPage({
   params
