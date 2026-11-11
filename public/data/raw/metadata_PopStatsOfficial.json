@@ -1,0 +1,150 @@
+{
+  "query": {
+    "data_series_code": "PopStatsOfficial"
+  },
+  "data": {
+    "code": "PopStatsOfficial",
+    "label_short": "Official population statistics on people affected by forced displacement and statelessness",
+    "label_long": "Official population statistics on people affected by forced displacement and statelessness, by population type",
+    "aliases": [],
+    "topics": [
+      {
+        "code": "POP",
+        "label": "Population & Demographics"
+      }
+    ],
+    "dataset": "POP",
+    "definition": "Official population statistics on people affected by forced displacement and statelessness are statistics that have been validated and endorsed by UNHCR under the authority of UNHCR's Statistical Quality Assurance Framework (SQAF) covering international displacement as well as internal displacement and statelessness.\n\nThe statistics measure the total number of people with a specific characteristic defined by a standard set of population types and demographic dimensions in a given geographic area during a specific point in time (stock) or range in time (flow).\n\nFor stock data, a person belongs to this population when they hold the specific characteristics at this reference date regardless of when they acquired this characteristic. As such, data cannot be summed across years.\n\nFor flow data, a person belongs to this population if they acquired the characteristic during the specific range in time. As such, data can be summed across years. This applies to all population types under the category of people who have reached a solution (SOL) including the following: Refugee returnees (RET), IDP returnees (RDP), Naturalized refugees (NAT), and Refugee resettlement arrivals and sponsorship pathways (RASP).\n\nData is compiled on a bi-annual basis, with publication cycles at mid and end year.",
+    "rationale": "Official statistics on refugees and others affected by forced displacement and stateless people are compiled and disseminated to provide an impartial, reliable, and internationally comparable evidence base for understanding forced displacement and statelessness, informing policy and operational decision-making, supporting protection and solutions, monitoring international commitments, and ensuring that affected populations are visible within national and international statistical systems.",
+    "method_of_computation": "Totals are computed by summing the total number of individuals among a specific population type, and when relevant, any specific demographic characteristics, at a specfic point in time (stock) or range in time (flow).",
+    "comparability": {
+      "code": "INT",
+      "label": "International definition and standards"
+    },
+    "reporting_frequency": {
+      "code": "A",
+      "label": "Annual"
+    },
+    "limitations": "Not all countries and population types have full set of demographics or disaggregations for each year.",
+    "quality_assurance": "Official statistics are statistics that have been officially validated and endorsed by UNHCR under the authority of UNHCR's Statistical Quality Assurance Framework (SQAF), first published in 2025.",
+    "related_frameworks": [
+      {
+        "framework": "SDG",
+        "framework_label": "Sustainible Development Goals Indicators",
+        "indicator": "10.7.4",
+        "indicator_label": "Proportion of the population who are refugees, by country of origin",
+        "comparability": null,
+        "relation": "C",
+        "relation_label": "Comparable"
+      }
+    ],
+    "data_sources": [
+      {
+        "code": "GOVT_WRL_NAT",
+        "label": "Government reported statistics on naturalization",
+        "time_period_end_year": 2026,
+        "date_coverage_start": "2021-01-01",
+        "date_coverage_end": "2026-12-31",
+        "kind_of_data": "REG",
+        "kind_of_data_label": "Registry / administrative data",
+        "footnotes_public": null,
+        "producers": [],
+        "coverage_areas": [],
+        "hyperlinks": []
+      },
+      {
+        "code": "GOVT_WRL_RASP",
+        "label": "Government reported statistics on resettlement arrivals and sponsorship pathways",
+        "time_period_end_year": 2026,
+        "date_coverage_start": "2021-01-01",
+        "date_coverage_end": "2026-12-31",
+        "kind_of_data": "REG",
+        "kind_of_data_label": "Registry / administrative data",
+        "footnotes_public": null,
+        "producers": [],
+        "coverage_areas": [
+          {
+            "region": "_T",
+            "region_label": "Total",
+            "country": "_T",
+            "country_label": "Total"
+          }
+        ],
+        "hyperlinks": []
+      },
+      {
+        "code": "IDMC_WRL_GIDD",
+        "label": "IDMC Global Internal Displacement Database (GIDD) - 2025",
+        "time_period_end_year": 2025,
+        "date_coverage_start": "2020-01-01",
+        "date_coverage_end": "2025-12-31",
+        "kind_of_data": "MS",
+        "kind_of_data_label": "Multisource",
+        "footnotes_public": null,
+        "producers": [
+          {
+            "code": "IDMC",
+            "label": "IDMC"
+          }
+        ],
+        "coverage_areas": [],
+        "hyperlinks": [
+          {
+            "url": "https://www.internal-displacement.org/database/displacement-data/",
+            "location": null,
+            "location_label": null
+          }
+        ]
+      },
+      {
+        "code": "UNHCR_WRL_PSR",
+        "label": "UNHCR official population statistics on people affected by forced displacement and statelessness",
+        "time_period_end_year": 2026,
+        "date_coverage_start": "1951-01-01",
+        "date_coverage_end": "2026-06-30",
+        "kind_of_data": "MS",
+        "kind_of_data_label": "Multisource",
+        "footnotes_public": null,
+        "producers": [
+          {
+            "code": "UNHCR",
+            "label": "United Nations High Commissioner for Refugees"
+          }
+        ],
+        "coverage_areas": [],
+        "hyperlinks": []
+      },
+      {
+        "code": "UNRWA_WRL_PSR",
+        "label": "UNRWA population statistics on refugees from Palestine under UNRWA's mandate",
+        "time_period_end_year": 2025,
+        "date_coverage_start": "1952-01-01",
+        "date_coverage_end": "2025-12-31",
+        "kind_of_data": "REG",
+        "kind_of_data_label": "Registry / administrative data",
+        "footnotes_public": null,
+        "producers": [
+          {
+            "code": "UNRWA",
+            "label": "UNRWA"
+          }
+        ],
+        "coverage_areas": [],
+        "hyperlinks": []
+      }
+    ],
+    "data_source_guidance": "UNHCR Population Statistics Reference (PSR), IDMC statistics on IDPs and UNRWA official statistics on Palestine refugees under UNRWA's mandate, Government reported statistics on naturalization and refugee resettlement arrivals and sponsorship pathways.",
+    "references": [
+      "https://unstats.un.org/sdgs/metadata/files/Metadata-10-07-04.pdf",
+      "https://egrisstats.org/wp-content/uploads/2021/12/International-Recommendations-on-Refugee-Statistics.pdf"
+    ],
+    "footnotes": [],
+    "last_updated": "2026-11-10T00:00:00Z",
+    "update_frequency": "S",
+    "coverage": {
+      "coverage_start": "1952-12",
+      "coverage_end": "2025-12",
+      "countries_covered_count": 192
+    }
+  }
+}

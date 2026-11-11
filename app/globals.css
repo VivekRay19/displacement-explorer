@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 40 20% 98%;
+  --foreground: 220 15% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 15% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 15% 15%;
+  --primary: 220 13% 18%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 40 10% 94%;
+  --secondary-foreground: 220 13% 18%;
+  --muted: 40 10% 93%;
+  --muted-foreground: 220 10% 45%;
+  --accent: 220 14% 94%;
+  --accent-foreground: 220 13% 18%;
+  --border: 40 10% 88%;
+  --input: 40 10% 88%;
+  --ring: 220 13% 18%;
+}
+
+.dark {
+  --background: 220 15% 8%;
+  --foreground: 220 15% 92%;
+  --card: 220 15% 10%;
+  --card-foreground: 220 15% 92%;
+  --popover: 220 15% 10%;
+  --popover-foreground: 220 15% 92%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 220 15% 10%;
+  --secondary: 220 15% 14%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 220 15% 16%;
+  --muted-foreground: 220 10% 60%;
+  --accent: 220 15% 16%;
+  --accent-foreground: 0 0% 100%;
+  --border: 220 15% 18%;
+  --input: 220 15% 18%;
+  --ring: 220 15% 80%;
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom quiet dotted line for glossary terms (Walkthrough sketch 4) */
+.glossary-underlined {
+  border-bottom: 1.5px dotted #64748b;
+  cursor: help;
+}

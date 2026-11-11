@@ -1,0 +1,52 @@
+[
+  {
+    "event_id": "evt-sl-1",
+    "situation_id": "sri-lankan-refugees-in-india",
+    "year": 1983,
+    "title": "Black July pogrom & onset of civil war",
+    "description": "Anti-Tamil riots in Colombo and northern Sri Lanka prompt the first major wave of displacement across the Palk Strait to Tamil Nadu.",
+    "category": "conflict",
+    "source": "UCDP Armed Conflict Dataset / Balan & Athray (2022)",
+    "url": "https://ucdp.uu.se/"
+  },
+  {
+    "event_id": "evt-sl-2",
+    "situation_id": "sri-lankan-refugees-in-india",
+    "year": 1991,
+    "title": "Assassination of Rajiv Gandhi",
+    "description": "Security measures tighten significantly across Tamil Nadu; camp administration transfers to stricter surveillance and movement controls.",
+    "category": "policy",
+    "source": "Suryanarayan & Sudarsen (2000)",
+    "url": "https://www.thehindu.com/"
+  },
+  {
+    "event_id": "evt-sl-3",
+    "situation_id": "sri-lankan-refugees-in-india",
+    "year": 2004,
+    "title": "Indian Ocean Tsunami",
+    "description": "Catastrophic tsunami strikes coastal Sri Lanka and Tamil Nadu coast, causing temporary secondary displacement.",
+    "category": "disaster",
+    "source": "EM-DAT Disaster Database",
+    "url": "https://www.emdat.be/"
+  },
+  {
+    "event_id": "evt-sl-4",
+    "situation_id": "sri-lankan-refugees-in-india",
+    "year": 2009,
+    "title": "End of Sri Lankan Civil War",
+    "description": "Military defeat of the LTTE at Mullivaikkal ends 26 years of armed conflict. Returns from India remain slow due to land and livelihood security concerns.",
+    "category": "conflict",
+    "source": "UCDP / UNHCR Regional Reports",
+    "url": "https://ucdp.uu.se/"
+  },
+  {
+    "event_id": "evt-sl-5",
+    "situation_id": "sri-lankan-refugees-in-india",
+    "year": 2019,
+    "title": "Citizenship Amendment Act (CAA)",
+    "description": "Enacted by Indian Parliament, granting accelerated citizenship pathways to specified non-Muslim minorities from Pakistan, Bangladesh, and Afghanistan, explicitly excluding Sri Lankan Tamil refugees.",
+    "category": "policy",
+    "source": "Gazette of India / Valatheeswaran & Rajan (2011)",
+    "url": "https://egazette.gov.in/"
+  }
+]

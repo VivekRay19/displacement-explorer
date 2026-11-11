@@ -1,0 +1,33 @@
+{
+  "situation_id": "sri-lankan-refugees-in-india",
+  "year": 2016,
+  "sources": [
+    {
+      "publisher": "UNHCR",
+      "source_name": "UNHCR Refugee Data Finder (2026 Release)",
+      "value": 63162,
+      "formatted_value": "63,162",
+      "population_type": "Refugees (year-end stock)",
+      "who_is_counted": "Registered refugees predominantly in state camps reported to UNHCR",
+      "method": "Reported to UNHCR by host government",
+      "coverage": "Year-end stock (December 2016)",
+      "definition": "UNHCR standard refugee mandate definition",
+      "notes": "Excludes unregistered persons and certain self-settled non-camp residents",
+      "url": "https://refugeedata.unhcr.org/"
+    },
+    {
+      "publisher": "Government of India (MEA)",
+      "source_name": "Ministry of External Affairs, Lok Sabha Unstarred Question No. 3974",
+      "value": 101005,
+      "formatted_value": "1,01,005",
+      "population_type": "Sri Lankan Tamil refugees in India",
+      "who_is_counted": "64,144 residing in 107 government-run camps + 36,861 living outside camps",
+      "method": "State government registers (Tamil Nadu Commissionerate of Rehabilitation & Welfare)",
+      "coverage": "As of 10 August 2016",
+      "definition": "No national domestic refugee law; treated under Foreigners Act with special executive status",
+      "notes": "Direct breakdown: 64,144 in 107 camps + 36,861 registered outside camps in Tamil Nadu",
+      "url": "https://mea.gov.in/"
+    }
+  ],
+  "discrepancy_explanation": "The difference of ~37,843 individuals is explained by coverage: the Government of India actively registers non-camp refugees living in the community, whereas UNHCR historical records primarily reflect camp populations under welfare schemes."
+}

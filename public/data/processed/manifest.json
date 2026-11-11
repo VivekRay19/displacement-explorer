@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-11-11T18:28:32.648Z",
+  "primary_source": {
+    "name": "UNHCR Refugee Data Portal API",
+    "base_url": "https://api-data.unhcr.org/api/v0",
+    "dataset_code": "PopStatsOfficial",
+    "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+    "attribution": "UNHCR Refugee Data Finder, official population statistics"
+  },
+  "snapshots": [
+    {
+      "id": "lka_ind",
+      "description": "Sri Lankan refugees and displaced in India",
+      "record_count": 36
+    },
+    {
+      "id": "lka_global",
+      "description": "Displaced populations from Sri Lanka globally",
+      "record_count": 600
+    },
+    {
+      "id": "mmr_bgd",
+      "description": "Rohingya refugees from Myanmar hosted in Bangladesh",
+      "record_count": 400
+    },
+    {
+      "id": "sdn_origin",
+      "description": "Displaced populations from Sudan across neighboring states",
+      "record_count": 500
+    }
+  ]
+}
