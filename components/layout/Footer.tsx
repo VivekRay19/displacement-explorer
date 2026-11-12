@@ -1,13 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
+import { APP_VERSION, GIT_COMMIT_SHA, BUILD_DATE } from '@/lib/version';
 
 export function Footer() {
   return (
     <footer className="w-full border-t border-stone-200 dark:border-slate-800 bg-[#f8f7f4] dark:bg-slate-950 py-10 text-stone-600 dark:text-slate-400 text-xs">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-2 space-y-3">
-          <div className="font-semibold text-sm text-stone-900 dark:text-slate-200">
-            Displacement Explorer
+          <div className="flex items-center gap-2">
+            <span className="font-semibold text-sm text-stone-900 dark:text-slate-200">
+              Displacement Explorer
+            </span>
+            <span className="font-mono text-[10px] bg-stone-200 dark:bg-slate-800 px-1.5 py-0.5 rounded text-stone-700 dark:text-slate-300">
+              v{APP_VERSION}
+            </span>
           </div>
           <p className="leading-relaxed text-stone-600 dark:text-slate-400 max-w-md">
             Understanding displacement through evidence. A university data visualization research project built to enable rigorous, traceable, and respectful study of global forced displacement.
@@ -81,8 +87,12 @@ export function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 mt-8 pt-4 border-t border-stone-200 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-stone-500">
-        <div>
-          Dataset Snapshot: 2026 Release · PopStatsOfficial (UNHCR API v0)
+        <div className="flex items-center gap-3">
+          <span>Snapshot: 2026 Release · PopStatsOfficial (UNHCR API v0)</span>
+          <span>·</span>
+          <a href="/api/version" target="_blank" className="hover:text-blue-600 underline font-mono text-[10px]">
+            Build Info: v{APP_VERSION} ({GIT_COMMIT_SHA.slice(0, 7)})
+          </a>
         </div>
         <div>
           Data Attribution: CC BY 4.0 International · All calculations documented.
