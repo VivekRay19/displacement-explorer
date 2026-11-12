@@ -57,6 +57,9 @@ export default function HomePage() {
       if (results.length > 0) {
         router.push(results[0].link);
         setIsDropdownOpen(false);
+      } else if (query.trim()) {
+        router.push(`/search?q=${encodeURIComponent(query.trim())}`);
+        setIsDropdownOpen(false);
       }
     } else if (e.key === 'Escape') {
       setIsDropdownOpen(false);

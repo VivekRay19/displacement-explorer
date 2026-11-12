@@ -29,6 +29,20 @@ export function Header() {
     }
   };
 
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      if (searchResults.length > 0) {
+        window.location.href = searchResults[0].link;
+        setShowSearchDropdown(false);
+      } else if (searchQuery.trim()) {
+        window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
+        setShowSearchDropdown(false);
+      }
+    } else if (e.key === 'Escape') {
+      setShowSearchDropdown(false);
+    }
+  };
+
   return (
     <header className={`w-full border-b transition-colors z-40 ${
       isHome ? 'bg-[#0f172a] border-slate-800 text-slate-100' : 'bg-[#fcfbf9] border-stone-200 text-slate-900'
@@ -78,6 +92,7 @@ export function Header() {
                 placeholder="Ask: a country, a group or a question..."
                 value={searchQuery}
                 onChange={handleSearchChange}
+                onKeyDown={handleSearchKeyDown}
                 onFocus={() => searchQuery && setShowSearchDropdown(true)}
                 className="w-full pl-9 pr-3 py-1.5 text-sm bg-white dark:bg-slate-900 border border-stone-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-900 dark:text-slate-100"
               />

@@ -1,9 +1,10 @@
 import Fuse from 'fuse.js';
 import { SITUATIONS_CATALOGUE } from '../data/situations';
 import { GLOSSARY_TERMS } from '../data/glossary';
+import { parseNaturalLanguageQuery } from './nlpQueryParser';
 
 export interface SearchMatchResult {
-  type: 'quick_answer' | 'situation' | 'country' | 'term';
+  type: 'live_query' | 'quick_answer' | 'situation' | 'country' | 'term';
   title: string;
   subtitle?: string;
   link: string;
@@ -11,35 +12,6 @@ export interface SearchMatchResult {
   sourceNote?: string;
   situationSlug?: string;
 }
-
-// Token dictionaries
-const POPULATION_SYNONYMS: Record<string, string> = {
-  refugee: 'Refugees',
-  refugees: 'Refugees',
-  asylum: 'Asylum-seekers',
-  'asylum-seeker': 'Asylum-seekers',
-  'asylum-seekers': 'Asylum-seekers',
-  idp: 'Internally Displaced Persons',
-  idps: 'Internally Displaced Persons',
-  displaced: 'Refugees',
-  displacement: 'Refugees',
-  stateless: 'Stateless people'
-};
-
-const COUNTRY_ALIASES: Record<string, { code: string; name: string }> = {
-  'sri lanka': { code: 'LKA', name: 'Sri Lanka' },
-  'sri lankan': { code: 'LKA', name: 'Sri Lanka' },
-  'sri lankans': { code: 'LKA', name: 'Sri Lanka' },
-  ceylon: { code: 'LKA', name: 'Sri Lanka' },
-  india: { code: 'IND', name: 'India' },
-  indian: { code: 'IND', name: 'India' },
-  myanmar: { code: 'MMR', name: 'Myanmar' },
-  burma: { code: 'MMR', name: 'Myanmar' },
-  bangladesh: { code: 'BGD', name: 'Bangladesh' },
-  rohingya: { code: 'MMR', name: 'Myanmar' },
-  sudan: { code: 'SDN', name: 'Sudan' },
-  sudanese: { code: 'SDN', name: 'Sudan' }
-};
 
 const fuseSituations = new Fuse(SITUATIONS_CATALOGUE, {
   keys: ['title', 'summary', 'originCountry.name', 'hostCountries.name', 'region'],
@@ -52,13 +24,35 @@ const fuseGlossary = new Fuse(GLOSSARY_TERMS, {
 });
 
 export function parseAndExecuteSearch(query: string): SearchMatchResult[] {
-  const trimmed = query.trim().toLowerCase();
+  const trimmed = query.trim();
   if (!trimmed) return [];
 
   const results: SearchMatchResult[] = [];
 
-  // 1. Natural question parsing (e.g., "Sri Lankan refugees in India")
-  const words = trimmed.replace(/[?.,]/g, '').split(/\s+/);
+  // 1. Intelligent Natural Language Parser Interpretation
+  const nlp = parseNaturalLanguageQuery(trimmed);
+  if (nlp.originCountry || nlp.asylumCountry) {
+    let title = '';
+    if (nlp.originCountry && nlp.asylumCountry) {
+      title = `${nlp.originCountry.name} to ${nlp.asylumCountry.name} (${nlp.populationCategory.replace('_', ' ')})`;
+    } else if (nlp.originCountry) {
+      title = `${nlp.originCountry.name} (${nlp.populationCategory.replace('_', ' ')})`;
+    } else if (nlp.asylumCountry) {
+      title = `Hosted in ${nlp.asylumCountry.name}`;
+    }
+
+    results.push({
+      type: 'live_query',
+      title: `Search UNHCR Data: ${title}`,
+      subtitle: nlp.explanation,
+      link: `/search?q=${encodeURIComponent(trimmed)}`,
+      sourceNote: 'UNHCR Refugee Data Portal'
+    });
+  }
+
+  // 2. Exact question / situation fast path (e.g., "Sri Lankan refugees in India")
+  const lower = trimmed.toLowerCase();
+  const words = lower.replace(/[?.,]/g, '').split(/\s+/);
   const isSriLanka = words.some(w => ['sri', 'lanka', 'lankan', 'lankans'].includes(w));
   const isIndia = words.some(w => ['india', 'indian'].includes(w));
   const isRefugee = words.some(w => ['refugee', 'refugees', 'displacement'].includes(w));
@@ -66,8 +60,8 @@ export function parseAndExecuteSearch(query: string): SearchMatchResult[] {
   if (isSriLanka && isIndia && isRefugee) {
     results.push({
       type: 'quick_answer',
-      title: 'Sri Lankan refugees in India, 2025: 89,507',
-      subtitle: 'Refugees registered with UNHCR at year end (stock).',
+      title: 'Sri Lankan refugees in India: 89,507',
+      subtitle: 'Research dossier with full historical stock series and source trace.',
       link: '/situations/sri-lankan-refugees-in-india',
       quickValue: '89,507',
       sourceNote: 'UNHCR Refugee Data Finder (Official Population Statistics)',
@@ -75,7 +69,7 @@ export function parseAndExecuteSearch(query: string): SearchMatchResult[] {
     });
   }
 
-  // 2. Fuzzy Match against Situations Catalogue
+  // 3. Fuzzy Match against Situations Catalogue
   const situationHits = fuseSituations.search(trimmed);
   for (const hit of situationHits) {
     results.push({
@@ -87,7 +81,7 @@ export function parseAndExecuteSearch(query: string): SearchMatchResult[] {
     });
   }
 
-  // 3. Match against Glossary
+  // 4. Match against Glossary
   const glossaryHits = fuseGlossary.search(trimmed);
   for (const hit of glossaryHits) {
     results.push({
